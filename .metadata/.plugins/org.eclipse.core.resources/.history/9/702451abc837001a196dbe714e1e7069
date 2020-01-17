@@ -1,0 +1,118 @@
+/*
+ * main.c
+ *
+ *  Created on: Feb 3, 2019
+ *      Author: Moustafa Ghareeb
+ */
+
+#include <C:\ECLIPSE_WORK_SPACE\MG2_DIO\DIO_prog.c>
+#include <C:\ECLIPSE_WORK_SPACE\MG2_LCD\LCD_prog.c>
+#include <C:\ECLIPSE_WORK_SPACE\MG2_Switch\Switch_interface.h>
+#include <C:\ECLIPSE_WORK_SPACE\MG2_Keypad\Keypad_prog.c>
+#define F_CPU 1000000UL
+
+u8 i,j;
+u8 pass[4];
+
+void Display()
+{
+	LCD_voidCursorPosition(0, 4);
+	LCD_voidWriteData('P');
+	LCD_voidCursorPosition(0, 5);
+	LCD_voidWriteData('a');
+	LCD_voidCursorPosition(0, 6);
+	LCD_voidWriteData('s');
+	LCD_voidCursorPosition(0, 7);
+	LCD_voidWriteData('s');
+	LCD_voidCursorPosition(0, 8);
+	LCD_voidWriteData('w');
+	LCD_voidCursorPosition(0, 9);
+	LCD_voidWriteData('o');
+	LCD_voidCursorPosition(0, 10);
+	LCD_voidWriteData('r');
+	LCD_voidCursorPosition(0, 11);
+	LCD_voidWriteData('d');
+}
+
+void Display_wrong()
+{
+	LCD_voidCursorPosition(1, 3);
+	LCD_voidWriteData('S');
+	LCD_voidCursorPosition(1, 4);
+	LCD_voidWriteData('a');
+	LCD_voidCursorPosition(1, 5);
+	LCD_voidWriteData('f');
+	LCD_voidCursorPosition(1, 6);
+	LCD_voidWriteData('e');
+	LCD_voidCursorPosition(1, 7);
+	LCD_voidWriteData(' ');
+	LCD_voidCursorPosition(1, 7);
+	LCD_voidWriteData(' ');
+	LCD_voidCursorPosition(1, 8);
+	LCD_voidWriteData('l');
+	LCD_voidCursorPosition(1, 9);
+	LCD_voidWriteData('o');
+	LCD_voidCursorPosition(1, 10);
+	LCD_voidWriteData('c');
+	LCD_voidCursorPosition(1, 11);
+	LCD_voidWriteData('k');
+	LCD_voidCursorPosition(1, 12);
+	LCD_voidWriteData('e');
+	LCD_voidCursorPosition(1, 13);
+	LCD_voidWriteData('d');
+}
+
+void Display_right()
+{
+	LCD_voidCursorPosition(1, 4);
+	LCD_voidWriteData('C');
+	LCD_voidCursorPosition(1, 5);
+	LCD_voidWriteData('o');
+	LCD_voidCursorPosition(1, 6);
+	LCD_voidWriteData('r');
+	LCD_voidCursorPosition(1, 7);
+	LCD_voidWriteData('r');
+	LCD_voidCursorPosition(1, 8);
+	LCD_voidWriteData('e');
+	LCD_voidCursorPosition(1, 9);
+	LCD_voidWriteData('c');
+	LCD_voidCursorPosition(1, 10);
+	LCD_voidWriteData('t');
+	LCD_voidCursorPosition(1, 11);
+	LCD_voidWriteData('!');
+}
+
+int main()
+{
+
+	DIO_voidInitial();		//Initialize the DIO
+	LCD_voidInitial();		//Initialize the LCD
+	Keypad_voidInitial();
+	Display();
+	while(1)
+	{
+		for (j = 0; j <=2; j++)
+		{
+			for (i = 0; i <=3; i++)
+			{
+				Display();
+				pass[i] = 13;
+				while(pass[i]==13)
+				{pass[i] = Keypad_u8GetKey();}
+				LCD_voidCursorPosition(1, 3+i*3);
+				LCD_voidWriteData('*');
+				_delay_ms(200);
+			}
+			LCD_voidClrDisplay();
+			Display();
+			if (pass[0]== 1 && pass[1]== 4 && pass[2]== 7 && pass[3]== 8)
+			{
+				Display_right();
+				return 0;
+			}
+		}
+		Display_wrong();
+		break;
+	}
+	return 0;
+}

@@ -1,0 +1,18 @@
+#define	ZERO	0b11000000
+#define	ONE		0b11111001
+#define	TWO		0b10100100
+#define	THREE	0b10110000
+#define	FOUR	0b10011001
+#define	FIVE	0b10010010
+#define	SIX		0b10000010
+#define	SEVEN	0b11111000
+#define	EIGHT	0b10000000
+#define	NINE	0b10010000
+
+#define A		0b11111110
+#define B		0b11111101
+#define C		0b11111011
+#define D		0b11110111
+#define E		0b11101111
+#define F		0b11011111
+#define G		0b10111111

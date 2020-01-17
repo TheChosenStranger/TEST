@@ -1,0 +1,226 @@
+#include "STD_TYPES.h"
+#include "Delay.h"
+#include "DIO_interface.h"
+#include "PORT_interface.h"
+#include "CLCD_interface.h"
+
+#include <util/delay.h>
+
+void Task1(void)
+{
+	CLCD_voidInitialize();
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(1, 3);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(0, 6);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(1, 9);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(0, 12);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(1, 9);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(0, 6);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(1, 3);
+	LCD_voidWriteString("MG2");
+	_delay_ms(1000);
+}
+
+u8 ID[4] = {0,0,0,0};
+u8 Password[4]={0,0,0,0};
+u8 i=0,j=0;
+u8 trails = 3;
+
+void check(void)
+{
+	i++;
+	if(i==4 && j==4)
+	{
+		i=0;
+		j=0;
+		if(Password[0] == ID[3] && Password[1] == ID[2] && Password[2] == ID[1] && Password[3] == ID[0])
+		{CLCD_voidInitialize();LCD_voidWriteString("Login Successful");while(1){;}}
+		else
+		{
+			CLCD_voidInitialize();
+			LCD_voidWriteString("Wrong password");
+			Password[0] = 0;
+			Password[1] = 0 ;
+			Password[2] = 0 ;
+			Password[3] = 0;
+			ID[0] = 0;
+			ID[1] = 0 ;
+			ID[2] = 0 ;
+			ID[3] = 0;
+			_delay_ms(10000);
+			CLCD_voidInitialize();
+			trails--;
+			if (trails == 0)
+			{
+				LCD_voidWriteString("Failed 3 times");
+				CLCD_voidCursorPosition(1, 0);
+				LCD_voidWriteString("Wait.....");
+				_delay_ms(10000);
+				trails=3;
+			}
+			CLCD_voidInitialize();
+			LCD_voidWriteString("Password: ");
+		}
+	}
+}
+void Task2(void)
+{
+	if(!GetPinValue('D',7))
+	{
+		CLCD_voidWriteData('7');
+		while(!GetPinValue('D',7)){;}
+		ID[i]=7;
+		i++;
+	}
+	else if(!GetPinValue('D',6))
+	{
+		CLCD_voidWriteData('6');
+		while(!GetPinValue('D',6)){;}
+		ID[i]=6;
+		i++;
+	}
+	else if(!GetPinValue('D',5))
+	{
+		CLCD_voidWriteData('5');
+		while(!GetPinValue('D',5)){;}
+		ID[i]=5;
+		i++;
+	}
+	else if(!GetPinValue('D',4))
+	{
+		CLCD_voidWriteData('4');
+		while(!GetPinValue('D',4)){;}
+		ID[i]=4;
+		i++;
+	}
+	else if(!GetPinValue('D',3))
+	{
+		CLCD_voidWriteData('3');
+		while(!GetPinValue('D',3)){;}
+		ID[i]=3;
+		i++;
+	}
+
+}
+
+void Task2_(void)
+{
+	if(!GetPinValue('D',7))
+	{
+		CLCD_voidWriteData('*');
+		while(!GetPinValue('D',7)){;}
+		Password[j]=7;
+		check();
+	}
+	else if(!GetPinValue('D',6))
+	{
+		CLCD_voidWriteData('*');
+		while(!GetPinValue('D',6)){;}
+		Password[j]=6;
+		check();
+	}
+	else if(!GetPinValue('D',5))
+	{
+		CLCD_voidWriteData('*');
+		while(!GetPinValue('D',5)){;}
+		Password[j]=5;
+		check();
+	}
+	else if(!GetPinValue('D',4))
+	{
+		CLCD_voidWriteData('*');
+		while(!GetPinValue('D',4)){;}
+		Password[j]=4;
+		check();
+	}
+	else if(!GetPinValue('D',3))
+	{
+		CLCD_voidWriteData('*');
+		while(!GetPinValue('D',3)){;}
+		Password[j]=3;
+		check();
+	}
+}
+
+u8 posx=0,posy=0;
+
+void move(void)
+{
+	CLCD_voidInitialize();
+	CLCD_voidCursorPosition(posy,posx);
+	LCD_voidWriteString("MG2");
+}
+
+void Task3(void)
+{
+	if(!GetPinValue('D',7))
+	{
+		if(posx<13){posx++;}
+		move();
+		while(!GetPinValue('D',7)){;}
+	}
+	else if(!GetPinValue('D',6))
+	{
+		if(posy<1){posy++;}
+		move();
+		while(!GetPinValue('D',6)){;}
+	}
+	else if(!GetPinValue('D',5))
+	{
+		if(posx>0){posx--;}
+		move();
+		while(!GetPinValue('D',5)){;}
+	}
+	else if(!GetPinValue('D',4))
+	{
+		if(posy>0){posy--;}
+		move();
+		while(!GetPinValue('D',4)){;}
+	}
+
+}
+
+void main (void)
+{
+	PortInitialize();
+	CLCD_voidInitialize();
+	LCD_voidWriteString("Welcome");
+
+	while(1)
+	{
+		_delay_ms(3000);
+		CLCD_voidInitialize();
+		LCD_voidWriteString("ID Please: ");
+		while(i<4)
+		{
+			Task2();
+		}
+		CLCD_voidInitialize();
+		LCD_voidWriteString("Password Please: ");
+		CLCD_voidCursorPosition(1,0);
+		while(j<4)
+		{
+			Task2_();
+		}
+	}
+}

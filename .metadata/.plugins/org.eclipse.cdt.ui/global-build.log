@@ -1,0 +1,104 @@
+15:49:17 **** Incremental Build of configuration Debug for project test ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:8:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'Task1':
+../main.c:13: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:17: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:21: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:25: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:29: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:33: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:37: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:41: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function 'check':
+../main.c:58: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:62: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:72: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:74: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:81: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function 'move':
+../main.c:172: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: At top level:
+../main.c:205: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:209: warning: implicit declaration of function 'GET_BIT'
+../main.c:219: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:225: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:231: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,test.map -mmcu=atmega32 -o "test.elf"  ./CLCD_program.o ./DIO_program.o ./Keypad_program.o ./LED_program.o ./PORT_program.o ./SevenSeg_program.o ./Switch_program.o ./main.o   
+./main.o: In function `main':
+../main.c:209: undefined reference to `GET_BIT'
+../main.c:210: undefined reference to `GET_BIT'
+../main.c:211: undefined reference to `GET_BIT'
+../main.c:212: undefined reference to `GET_BIT'
+../main.c:213: undefined reference to `GET_BIT'
+./main.o:../main.c:214: more undefined references to `GET_BIT' follow
+make: *** [test.elf] Error 1
+15:49:29 **** Incremental Build of configuration Debug for project test ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:8:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'Task1':
+../main.c:13: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:17: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:21: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:25: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:29: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:33: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:37: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:41: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function 'check':
+../main.c:58: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:62: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:72: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:74: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:81: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function 'move':
+../main.c:172: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: At top level:
+../main.c:204: warning: return type of 'main' is not 'int'
+../main.c: In function 'main':
+../main.c:210: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:216: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:222: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,test.map -mmcu=atmega32 -o "test.elf"  ./CLCD_program.o ./DIO_program.o ./Keypad_program.o ./LED_program.o ./PORT_program.o ./SevenSeg_program.o ./Switch_program.o ./main.o   
+Finished building target: test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S test.elf  >"test.lss"
+Finished building: test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex test.elf  "test.hex"
+Finished building: test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12902 bytes (39.4% Full)
+(.text + .data + .bootloader)
+
+Data:        433 bytes (21.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

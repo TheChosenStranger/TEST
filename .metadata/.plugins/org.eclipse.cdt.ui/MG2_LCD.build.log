@@ -1,0 +1,21 @@
+23:10:28 **** Incremental Build of configuration Debug for project MG2_LCD ****
+make all 
+Building target: MG2_LCD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MG2_LCD.map -mmcu=atmega16 -o "MG2_LCD.elf"  ./LCD_prog.o   
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+./LCD_prog.o: In function `LCD_voidInitial':
+../LCD_prog.c:24: undefined reference to `DIO_voidClrPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidClrPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidSetPortValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidSetPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidClrPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidSetPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidClrPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidSetPortValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidSetPinValue'
+../LCD_prog.c:24: undefined reference to `DIO_voidClrPinValue'
+make: *** [MG2_LCD.elf] Error 1
+
+23:10:29 Build Finished (took 441ms)
+

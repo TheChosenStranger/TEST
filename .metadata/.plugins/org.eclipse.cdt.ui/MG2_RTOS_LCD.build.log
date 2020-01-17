@@ -1,0 +1,20 @@
+15:15:46 **** Incremental Build of configuration Debug for project MG2_RTOS_LCD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 MG2_RTOS_LCD.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3612 bytes (22.0% Full)
+(.text + .data + .bootloader)
+
+Data:        596 bytes (58.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:15:47 Build Finished (took 290ms)
+

@@ -1,0 +1,3 @@
+void SevenSeg_SetNumber (u8 number);
+void SevenSeg_Enable(u8 number);
+void SevenSeg_Disable(u8 number,u8 seg_select);

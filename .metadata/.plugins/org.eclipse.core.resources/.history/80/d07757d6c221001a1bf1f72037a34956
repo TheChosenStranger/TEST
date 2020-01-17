@@ -1,0 +1,26 @@
+/* Number of used Segs*/
+#define SEVENSEG_NUMBER  2
+/*0 1 2 3 4 5 6 7*/
+#define SEG_Pin_common1	0
+#define SEG_Pin_common2	1
+#define SEG_Pin_a		0
+#define SEG_Pin_b		1
+#define SEG_Pin_c		2
+#define SEG_Pin_d		3
+#define SEG_Pin_e		4
+#define SEG_Pin_f		5
+#define SEG_Pin_g		6
+#define SEG_Pin_h		7
+/*Port 'A' or 'B' or 'C' or 'D' */
+#define SEG_Port_common1 'C'
+#define SEG_Port_common2 'C'
+#define SEG_Port_a		 'A'
+#define SEG_Port_b		 'A'
+#define SEG_Port_c		 'A'
+#define SEG_Port_d		 'A'
+#define SEG_Port_e		 'A'
+#define SEG_Port_f		 'A'
+#define SEG_Port_g		 'A'
+#define SEG_Port_h		 'A'
+/*Common anode	1	Common cathode 90*/
+#define SEG_Mode		1
